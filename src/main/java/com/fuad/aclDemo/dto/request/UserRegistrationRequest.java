@@ -21,6 +21,8 @@ public class UserRegistrationRequest {
     private String lastName;
     @NotNull(message = "Email name is required")
     private String email;
+    @NotNull(message = "Password is required")
+    private String password;
     @NotNull(message = "Phone number name is required")
     private String phoneNumber;
     @NotNull(message = "User type is required")
