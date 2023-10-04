@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .addFilterBefore(exceptionHandlerFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(jwtTokenVerifierFilter, ExceptionHandlerFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/login", "/api/v1/home").permitAll()
+                        .requestMatchers("/api/v1/auth/login","api/v1/auth/refresh", "/api/v1/home").permitAll()
                         .anyRequest()
                         .authenticated()
                 )
@@ -54,6 +54,7 @@ public class SecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(10);
     }

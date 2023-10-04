@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     @Override
     public UserResponse registerUser(UserRegistrationRequest userRegistrationRequest) {
-        if (userRepository.existByUsername(userRegistrationRequest.getEmail()))
+        if (userRepository.existsByUsername(userRegistrationRequest.getEmail()))
             throw new EntityExistsException(String.format("Email %s already exists", userRegistrationRequest.getEmail()));
 
         Role role = roleService.getRoleByUserType(userRegistrationRequest.getType());
