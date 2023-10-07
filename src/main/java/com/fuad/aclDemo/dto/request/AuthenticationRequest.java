@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationRequest {
+
     @NotNull(message = "Username is required")
     private String username;
     @NotNull(message = "Password is required")
