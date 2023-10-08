@@ -39,7 +39,9 @@ public class UserController {
             }
             return ResponseEntity.badRequest().body(errors);
         }
-        return ResponseEntity.ok("good");
+
+        return ResponseEntity.ok(userService.registerUser(request));
+
 
 //        return ResponseObject.<UserResponse>builder()
 //                .status(ResponseObject.ResponseStatus.SUCCESSFUL)
@@ -50,9 +52,9 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('users:read')")
-    public ResponseObject<Page<UserResponse>> getAllUsers(@PageableDefault(
-                                                            sort = "id", direction = Sort.Direction.DESC
-                                                        )Pageable pageable
+    public ResponseObject<Page<UserResponse>> getAllUsers(@PageableDefault(sort = "id",
+                                                            direction = Sort.Direction.DESC
+                                                            )Pageable pageable
                                                         ){
         return ResponseObject.<Page<UserResponse>>builder()
                 .status(ResponseObject.ResponseStatus.SUCCESSFUL)

@@ -7,7 +7,6 @@ import com.fuad.aclDemo.repository.RoleRepository;
 import com.fuad.aclDemo.service.RoleService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
-import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,6 +21,7 @@ public class RoleServiceImpl implements RoleService {
             case CUSTOMER -> RoleName.ROLE_CUSTOMER;
             case ADMIN -> RoleName.ROLE_ADMIN;
         };
+        System.out.println("role name " + roleRepository.findByName(roleName.toString()));
 
         return roleRepository.findByName(roleName.toString()).orElseThrow(() -> new
                 EntityNotFoundException("Role not found"));

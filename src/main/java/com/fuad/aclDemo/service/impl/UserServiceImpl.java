@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
         Role role = roleService.getRoleByUserType(userRegistrationRequest.getType());
 
+
         User user = User.builder()
                 .firstName(userRegistrationRequest.getFirstName())
                 .lastName(userRegistrationRequest.getLastName())
