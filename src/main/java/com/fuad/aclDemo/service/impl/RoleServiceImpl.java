@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class RoleServiceImpl implements RoleService {
-    private final RoleRepository roleRepository;
 
+    private final RoleRepository roleRepository;
 
     @Override
     public Role getRoleByUserType(UserType userType) {
