@@ -45,15 +45,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         );
 
         User user = userRepository.findByUsername(authentication.getName()).get();
+
         CustomUserDetails userDetails = Mapper.toCustomUserUserDetails(user);
 
         String accessToken = jwtService.generateAccessToken(userDetails);
-        System.out.println("===================="+authentication.getName());
         String refreshToken = jwtService.generateRefreshToken(userDetails);
 
         this.revokeUserToken(user, List.of(TokenType.ACCESS_TOKEN));
         this.saveUserToken(user, accessToken, TokenType.ACCESS_TOKEN);
-
         return AuthenticationResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)

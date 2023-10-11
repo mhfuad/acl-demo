@@ -20,6 +20,7 @@ public class Token {
     private Long id;
 
     @NotNull(message = "Token is required")
+    @Lob
     private String token;
 
     @Enumerated(EnumType.STRING)

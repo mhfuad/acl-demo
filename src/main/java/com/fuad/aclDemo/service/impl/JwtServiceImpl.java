@@ -41,7 +41,7 @@ public class JwtServiceImpl implements JwtService {
         tokenBody.put("lastName", userDetails.getLastName());
         tokenBody.put("username", userDetails.getUsername());
         tokenBody.put("phoneNumber", userDetails.getPhoneNumber());
-        //tokenBody.put("vrified", userDetails.get)
+        tokenBody.put("verified", userDetails.isVerified());
         tokenBody.put("authorities", authorities);
 
         byte[] key = authenticationProperties.getSecretKey().getBytes();
@@ -87,6 +87,7 @@ public class JwtServiceImpl implements JwtService {
                     .compact();
 
         } catch (JwtException e){
+            System.out.println("Token generate error"+e.getMessage());
             throw new JwtException(e.getMessage());
         }
     }

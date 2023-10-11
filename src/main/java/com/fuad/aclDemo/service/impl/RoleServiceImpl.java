@@ -21,7 +21,6 @@ public class RoleServiceImpl implements RoleService {
             case CUSTOMER -> RoleName.ROLE_CUSTOMER;
             case ADMIN -> RoleName.ROLE_ADMIN;
         };
-        System.out.println("role name " + roleRepository.findByName(roleName.toString()));
 
         return roleRepository.findByName(roleName.toString()).orElseThrow(() -> new
                 EntityNotFoundException("Role not found"));

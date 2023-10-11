@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('users:read')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN:read')")
     public ResponseObject<Page<UserResponse>> getAllUsers(@PageableDefault(sort = "id",
                                                             direction = Sort.Direction.DESC
                                                             )Pageable pageable

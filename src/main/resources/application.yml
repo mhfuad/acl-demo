@@ -10,3 +10,9 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+authentication:
+  secret-key: ${{ SECRET_KEY_brnwon_fox90_&&}}
+  access-token:
+    expiration-in-seconds: 18800
+  refresh-token:
+    expiration-in-seconds: 86400
