@@ -39,6 +39,7 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if(Strings.isNullOrEmpty(authorizationHeader) || !authorizationHeader.startsWith("Bearer ")){
+            System.out.println("No token provided");
             filterChain.doFilter(request, response);
             return;
         }
@@ -47,22 +48,28 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
 
         try{
             Jws<Claims> claimsJws = jwtService.validateToken(token);
+            System.out.println(claimsJws);
             Claims body = claimsJws.getBody();
 
             String username = (String) body.get("username");
-
             String authorities;
             if(body.get("authorities") == null){
                 throw new MissingClaimException(claimsJws.getHeader(), body, "Token is invalid");
             } else {
-              authorities = (String) body.get("authorities");
+                authorities = (String) body.get("authorities");
             }
 
             Set<SimpleGrantedAuthority> simpleGrantedAuthoritis = new HashSet<>();
 
             Arrays.asList(authorities.split(" "))
-                    .forEach(a -> simpleGrantedAuthoritis.add(new SimpleGrantedAuthority(a)));
+                    .forEach(a -> {
+                            System.out.println(a);
+                            simpleGrantedAuthoritis.add(new SimpleGrantedAuthority(a));
+                        }
+                    );
 
+            System.out.println("0000000000000000000000"+authorities);
+            System.out.println("0000000000000000000000"+simpleGrantedAuthoritis);
             Authentication authentication = new UsernamePasswordAuthenticationToken(
                     username,
                     null,
@@ -72,9 +79,11 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
         } catch (ExpiredJwtException e) {
+            System.out.println("Token is expired");
             throw new JwtException("Token is expired");
 
         } catch (JwtException e) {
+            System.out.println("bal"+e.getMessage());
             throw new JwtException(e.getMessage());
         }
 
