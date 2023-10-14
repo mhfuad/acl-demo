@@ -28,10 +28,10 @@ public class UserController {
     private UserService userService;
 
     //public ResponseObject<UserResponse> registerUser(@Valid @RequestBody UserRegistrationRequest request, BindingResult result){
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserRegistrationRequest request, BindingResult result){
         log.info("Received user registration request: {}", request);
-
+        System.out.println("bal");
         if (result.hasErrors()){
             Map<String,String> errors = new HashMap<>();
             for (FieldError error: result.getFieldErrors()){
@@ -50,7 +50,7 @@ public class UserController {
 //                .build();
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @PreAuthorize("hasAuthority('ROLE_ADMIN:read')")
     public ResponseObject<Page<UserResponse>> getAllUsers(@PageableDefault(sort = "id",
                                                             direction = Sort.Direction.DESC

@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Slf4j
+//@Slf4j
 @Component
 @AllArgsConstructor
 public class JwtTokenVerifierFilter extends OncePerRequestFilter {
@@ -75,7 +75,7 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
                     null,
                     simpleGrantedAuthoritis
             );
-
+            System.out.println("authentication"+authentication);
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
         } catch (ExpiredJwtException e) {

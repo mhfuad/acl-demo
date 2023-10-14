@@ -28,6 +28,7 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         try{
+            log.info("receive log : {}", request);
             filterChain.doFilter(request, response);
         } catch (Exception e){
             resolver.resolveException(request, response, null, e);
