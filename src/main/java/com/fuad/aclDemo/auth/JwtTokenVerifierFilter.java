@@ -39,7 +39,6 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if(Strings.isNullOrEmpty(authorizationHeader) || !authorizationHeader.startsWith("Bearer ")){
-            System.out.println("No token provided");
             filterChain.doFilter(request, response);
             return;
         }
@@ -63,25 +62,21 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
 
             Arrays.asList(authorities.split(" "))
                     .forEach(a -> {
-                            System.out.println(a);
                             simpleGrantedAuthoritis.add(new SimpleGrantedAuthority(a));
                         }
                     );
 
-            System.out.println("0000000000000000000000"+authorities);
-            System.out.println("0000000000000000000000"+simpleGrantedAuthoritis);
             Authentication authentication = new UsernamePasswordAuthenticationToken(
                     username,
                     null,
                     simpleGrantedAuthoritis
             );
-            System.out.println("authentication"+authentication);
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
         } catch (ExpiredJwtException e) {
-            System.out.println("Token is expired");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("Token expired. Please log in again.");
             throw new JwtException("Token is expired");
-
         } catch (JwtException e) {
             System.out.println("bal"+e.getMessage());
             throw new JwtException(e.getMessage());

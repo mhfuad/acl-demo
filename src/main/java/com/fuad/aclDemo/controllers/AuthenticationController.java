@@ -45,7 +45,14 @@ public class AuthenticationController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<AuthenticationResponse> refresh(@RequestBody @Valid RefreshTokenRequest request){
+    public ResponseEntity<?> refresh(@Valid @RequestBody RefreshTokenRequest request, BindingResult result){
+        if (result.hasErrors()){
+            Map<String,String> errors = new HashMap<>();
+            for (FieldError error: result.getFieldErrors()){
+                errors.put(error.getField(), error.getDefaultMessage());
+            }
+            return ResponseEntity.badRequest().body(errors);
+        }
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(authenticationService.refreshToken(request));

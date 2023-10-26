@@ -88,7 +88,6 @@ public class JwtServiceImpl implements JwtService {
                     .compact();
 
         } catch (JwtException e){
-            System.out.println("Token generate error"+e.getMessage());
             throw new JwtException(e.getMessage());
         }
     }

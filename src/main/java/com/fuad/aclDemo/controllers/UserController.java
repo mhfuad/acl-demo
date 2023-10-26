@@ -31,7 +31,6 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserRegistrationRequest request, BindingResult result){
         log.info("Received user registration request: {}", request);
-        System.out.println("bal");
         if (result.hasErrors()){
             Map<String,String> errors = new HashMap<>();
             for (FieldError error: result.getFieldErrors()){
@@ -41,8 +40,6 @@ public class UserController {
         }
 
         return ResponseEntity.ok(userService.registerUser(request));
-
-
 //        return ResponseObject.<UserResponse>builder()
 //                .status(ResponseObject.ResponseStatus.SUCCESSFUL)
 //                .message("User Register successful")
