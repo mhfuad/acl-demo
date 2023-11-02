@@ -32,5 +32,5 @@ build/
 ### VS Code ###
 api/.vscode/
 front-end/.vscode/
-front-end/node-modules
+front-end/node-modules/
 target/
