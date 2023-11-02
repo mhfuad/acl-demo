@@ -1,0 +1,18 @@
+server:
+  port: 8001
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/aclDemo
+    username: fuad
+    password: esscsmfu2
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+authentication:
+  secret-key: ${{ SECRET_KEY_brnwon_*&$#-good}}
+  access-token:
+    expiration-in-seconds: 18800
+  refresh-token:
+    expiration-in-seconds: 86400
