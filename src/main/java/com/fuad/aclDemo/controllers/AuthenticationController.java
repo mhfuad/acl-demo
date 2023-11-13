@@ -42,6 +42,10 @@ public class AuthenticationController {
                 .body(authenticationService.login(request));
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<?> self(){
+        return ResponseEntity.ok("you");
+    }
     @PostMapping("/refresh")
     public ResponseEntity<?> refresh(@Valid @RequestBody RefreshTokenRequest request, BindingResult result){
         if (result.hasErrors()){
