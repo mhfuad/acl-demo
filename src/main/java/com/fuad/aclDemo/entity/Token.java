@@ -21,6 +21,7 @@ public class Token {
 
     @NotNull(message = "Token is required")
     @Lob
+    @Column(length = 5000)
     private String token;
 
     @Enumerated(EnumType.STRING)

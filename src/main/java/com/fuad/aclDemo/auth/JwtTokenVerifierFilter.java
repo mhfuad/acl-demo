@@ -46,7 +46,6 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
 
         try{
             Jws<Claims> claimsJws = jwtService.validateToken(token);
-            System.out.println(claimsJws);
             Claims body = claimsJws.getBody();
 
             String username = (String) body.get("username");
