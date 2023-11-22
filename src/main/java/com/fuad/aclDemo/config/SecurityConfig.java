@@ -38,7 +38,12 @@ public class SecurityConfig {
                 .addFilterBefore(exceptionHandlerFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(jwtTokenVerifierFilter, ExceptionHandlerFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/login","api/v1/auth/refresh", "/api/v1/home","/api/v1/users/create").permitAll()
+                        .requestMatchers("/api/v1/auth/login",
+                                "api/v1/auth/refresh",
+                                "/api/v1/home",
+                                "/api/v1/users/create",
+                                "swagger-ui/**",
+                                "/v3/api-docs/**").permitAll()
                         .anyRequest()
                         .authenticated()
                 )
