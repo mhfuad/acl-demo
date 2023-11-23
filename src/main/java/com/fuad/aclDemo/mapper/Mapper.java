@@ -3,9 +3,7 @@ package com.fuad.aclDemo.mapper;
 import com.fuad.aclDemo.dto.CustomUserDetails;
 import com.fuad.aclDemo.dto.response.RoleResponse;
 import com.fuad.aclDemo.dto.response.UserResponse;
-import com.fuad.aclDemo.entity.Student;
 import com.fuad.aclDemo.entity.User;
-import com.fuad.aclDemo.repository.StudentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

@@ -76,7 +76,8 @@ public class JwtTokenVerifierFilter extends OncePerRequestFilter {
             response.getWriter().write("Token expired. Please log in again.");
             throw new JwtException("Token is expired");
         } catch (JwtException e) {
-            System.out.println("bal"+e.getMessage());
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("Token not matching.");
             throw new JwtException(e.getMessage());
         }
 

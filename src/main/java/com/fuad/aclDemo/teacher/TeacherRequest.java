@@ -1,6 +1,5 @@
-package com.fuad.aclDemo.entity;
+package com.fuad.aclDemo.teacher;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,22 +8,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "students")
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+@AllArgsConstructor
+public class TeacherRequest {
     @NotNull(message = "Name is required")
     private String name;
-
+    @NotNull(message = "Father name is required")
     private String fatherName;
-
+    @NotNull(message = "Mother name is required")
     private String motherName;
-
+    @NotNull(message = "Address is required")
     private String address;
 }

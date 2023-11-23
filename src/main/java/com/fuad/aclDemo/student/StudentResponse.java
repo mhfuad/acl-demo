@@ -1,4 +1,4 @@
-package com.fuad.aclDemo.dto.response;
+package com.fuad.aclDemo.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

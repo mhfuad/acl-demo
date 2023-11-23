@@ -49,6 +49,5 @@ public class User {
     private boolean verified;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
     private Set<Role> roles;
 }

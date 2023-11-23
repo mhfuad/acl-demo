@@ -1,4 +1,4 @@
-package com.fuad.aclDemo.dto.request;
+package com.fuad.aclDemo.student;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
