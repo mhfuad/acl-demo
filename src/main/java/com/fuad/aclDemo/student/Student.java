@@ -1,14 +1,15 @@
 package com.fuad.aclDemo.student;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fuad.aclDemo.department.Department;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+//@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +31,10 @@ public class Student {
     private String address;
 
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(
+            name = "department_id",
+            referencedColumnName = "id"
+    )
+    @JsonIgnore
     private Department department;
 }

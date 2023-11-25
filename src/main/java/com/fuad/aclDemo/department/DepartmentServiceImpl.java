@@ -1,5 +1,6 @@
 package com.fuad.aclDemo.department;
 
+import com.fuad.aclDemo.student.Student;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public Department byId(Long id) {
-        return repo.findById(id).orElseThrow(()-> new EntityNotFoundException("Student not found"));
+        return repo.findById(id).orElse(null);
     }
 
     @Override

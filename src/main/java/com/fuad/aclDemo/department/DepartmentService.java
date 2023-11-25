@@ -1,5 +1,6 @@
 package com.fuad.aclDemo.department;
 
+import com.fuad.aclDemo.student.Student;
 import com.fuad.aclDemo.teacher.Teacher;
 import com.fuad.aclDemo.teacher.TeacherRequest;
 

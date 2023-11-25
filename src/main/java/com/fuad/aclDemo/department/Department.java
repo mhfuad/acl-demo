@@ -3,14 +3,13 @@ package com.fuad.aclDemo.department;
 import com.fuad.aclDemo.student.Student;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+//@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +24,9 @@ public class Department {
     @NotNull(message = "Name is required")
     private String name;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(
+            mappedBy = "department",
+            cascade = CascadeType.ALL
+            )
     private List<Student> students;
 }

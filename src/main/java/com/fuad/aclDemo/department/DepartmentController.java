@@ -1,5 +1,6 @@
 package com.fuad.aclDemo.department;
 
+import com.fuad.aclDemo.student.Student;
 import com.fuad.aclDemo.teacher.Teacher;
 import com.fuad.aclDemo.teacher.TeacherRepository;
 import com.fuad.aclDemo.teacher.TeacherRequest;
@@ -11,9 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1/department")
@@ -49,6 +48,7 @@ public class DepartmentController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> byId(@PathVariable Long id){
+        //return ResponseEntity.ok("bal");
         try{
             return ResponseEntity.ok(service.byId(id));
         }catch (Exception e){

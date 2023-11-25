@@ -4,6 +4,7 @@ import com.fuad.aclDemo.entity.Role;
 import com.fuad.aclDemo.entity.User;
 import com.fuad.aclDemo.repository.RoleRepository;
 import com.fuad.aclDemo.repository.UserRepository;
+import com.fuad.aclDemo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,14 +24,15 @@ public class AclDemoApplication {
 	@Autowired
 	RoleRepository roleRepository;
 	@Autowired
+	RoleService roleService;
+	@Autowired
 	PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(AclDemoApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner(){
 		return args -> {
 			ArrayList<Role> roles = new ArrayList<>();
@@ -45,7 +47,7 @@ public class AclDemoApplication {
 			role1.setDescription("CUSTOMER");
 			roleRepository.save(role1);
 
-			User user = User.builder()
+			*//*User user = User.builder()
 					.firstName("Fuad")
 					.lastName("Hasan")
 					.username("fuad@gmail.com")
@@ -56,7 +58,7 @@ public class AclDemoApplication {
 					.accountNonLocked(true)
 					.credentialsNonExpired(true)
 					.enabled(true)
-					.build();
+					.build();*//*
 		};
-	}
+	}*/
 }

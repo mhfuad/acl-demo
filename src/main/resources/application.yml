@@ -10,6 +10,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+      format_sql: true
 authentication:
   secret-key: ${{ SECRET_KEY_brnwon_*&$#-good}}
   access-token:
