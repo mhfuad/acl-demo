@@ -1,6 +1,5 @@
-package com.fuad.aclDemo.service;
+package com.fuad.aclDemo.role;
 
-import com.fuad.aclDemo.entity.Role;
 import com.fuad.aclDemo.enums.UserType;
 
 public interface RoleService {

@@ -1,10 +1,8 @@
-package com.fuad.aclDemo.service.impl;
+package com.fuad.aclDemo.role;
 
-import com.fuad.aclDemo.entity.Role;
 import com.fuad.aclDemo.enums.RoleName;
 import com.fuad.aclDemo.enums.UserType;
 import com.fuad.aclDemo.repository.RoleRepository;
-import com.fuad.aclDemo.service.RoleService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

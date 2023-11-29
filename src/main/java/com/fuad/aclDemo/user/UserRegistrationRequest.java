@@ -1,4 +1,4 @@
-package com.fuad.aclDemo.dto.request;
+package com.fuad.aclDemo.user;
 
 import com.fuad.aclDemo.enums.UserType;
 import jakarta.persistence.EnumType;

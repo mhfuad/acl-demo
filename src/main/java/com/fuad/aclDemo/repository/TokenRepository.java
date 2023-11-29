@@ -2,7 +2,6 @@ package com.fuad.aclDemo.repository;
 
 import com.fuad.aclDemo.entity.Token;
 import com.fuad.aclDemo.enums.TokenType;
-import org.aspectj.apache.bcel.classfile.Module;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

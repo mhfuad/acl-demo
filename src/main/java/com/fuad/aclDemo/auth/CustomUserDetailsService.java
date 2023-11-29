@@ -1,9 +1,9 @@
 package com.fuad.aclDemo.auth;
 
 import com.fuad.aclDemo.dto.CustomUserDetails;
-import com.fuad.aclDemo.entity.User;
+import com.fuad.aclDemo.user.User;
 import com.fuad.aclDemo.mapper.Mapper;
-import com.fuad.aclDemo.repository.UserRepository;
+import com.fuad.aclDemo.user.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AccountStatusException;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;

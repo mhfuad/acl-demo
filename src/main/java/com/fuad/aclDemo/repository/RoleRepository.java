@@ -1,6 +1,6 @@
 package com.fuad.aclDemo.repository;
 
-import com.fuad.aclDemo.entity.Role;
+import com.fuad.aclDemo.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

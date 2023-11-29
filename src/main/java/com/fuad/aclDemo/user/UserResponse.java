@@ -1,5 +1,6 @@
-package com.fuad.aclDemo.dto.response;
+package com.fuad.aclDemo.user;
 
+import com.fuad.aclDemo.role.RoleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

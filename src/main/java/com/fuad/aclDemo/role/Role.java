@@ -1,5 +1,6 @@
-package com.fuad.aclDemo.entity;
+package com.fuad.aclDemo.role;
 
+import com.fuad.aclDemo.entity.Permission;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

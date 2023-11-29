@@ -1,9 +1,6 @@
-package com.fuad.aclDemo.controllers;
+package com.fuad.aclDemo.user;
 
 import com.fuad.aclDemo.common.ResponseObject;
-import com.fuad.aclDemo.dto.request.UserRegistrationRequest;
-import com.fuad.aclDemo.dto.response.UserResponse;
-import com.fuad.aclDemo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

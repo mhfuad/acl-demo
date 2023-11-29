@@ -2,7 +2,6 @@ package com.fuad.aclDemo.service.impl;
 
 import com.fuad.aclDemo.config.properties.AuthenticationProperties;
 import com.fuad.aclDemo.dto.CustomUserDetails;
-import com.fuad.aclDemo.entity.Token;
 import com.fuad.aclDemo.repository.TokenRepository;
 import com.fuad.aclDemo.service.JwtService;
 import io.jsonwebtoken.Claims;

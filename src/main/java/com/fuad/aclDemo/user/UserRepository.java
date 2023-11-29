@@ -1,6 +1,6 @@
-package com.fuad.aclDemo.repository;
+package com.fuad.aclDemo.user;
 
-import com.fuad.aclDemo.entity.User;
+import com.fuad.aclDemo.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -1,13 +1,8 @@
-package com.fuad.aclDemo.service.impl;
+package com.fuad.aclDemo.user;
 
-import com.fuad.aclDemo.dto.request.UserRegistrationRequest;
-import com.fuad.aclDemo.dto.response.UserResponse;
-import com.fuad.aclDemo.entity.Role;
-import com.fuad.aclDemo.entity.User;
+import com.fuad.aclDemo.role.Role;
 import com.fuad.aclDemo.mapper.Mapper;
-import com.fuad.aclDemo.repository.UserRepository;
-import com.fuad.aclDemo.service.RoleService;
-import com.fuad.aclDemo.service.UserService;
+import com.fuad.aclDemo.role.RoleService;
 import jakarta.persistence.EntityExistsException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

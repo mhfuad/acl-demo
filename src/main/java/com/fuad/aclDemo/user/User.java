@@ -1,6 +1,7 @@
-package com.fuad.aclDemo.entity;
+package com.fuad.aclDemo.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fuad.aclDemo.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

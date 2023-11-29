@@ -1,6 +1,7 @@
 package com.fuad.aclDemo.entity;
 
 import com.fuad.aclDemo.enums.TokenType;
+import com.fuad.aclDemo.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
