@@ -21,8 +21,10 @@ public class AclDemoApplication {
 
 	@Autowired
 	RoleRepository roleRepository;
+
 	@Autowired
 	RoleService roleService;
+
 	@Autowired
 	PasswordEncoder passwordEncoder;
 

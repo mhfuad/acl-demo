@@ -25,7 +25,7 @@ import java.util.Map;
 @Slf4j
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/userInfo")
+@RequestMapping("/api/v1/user_info")
 public class UserInfoController {
     private UserInfoService service;
     private UserRepository userRepository;
@@ -35,7 +35,8 @@ public class UserInfoController {
     //public ResponseObject<UserResponse> registerUser(@Valid @RequestBody UserRegistrationRequest request, BindingResult result){
     @PostMapping("/create")
     public ResponseEntity<?> registerUser(@Valid @RequestBody UserInfoRequest request){
-        return ResponseEntity.ok("create");
+
+        return ResponseEntity.ok(service.create(request));
 
         //return ResponseEntity.ok(userService.registerUser(request));
 //        return ResponseObject.<UserResponse>builder()

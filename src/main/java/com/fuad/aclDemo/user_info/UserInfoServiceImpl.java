@@ -22,15 +22,26 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfoRepository repository;
     @Autowired
     UserRepository userRepo;
+    @Autowired
+    UserRepository userRepository;
     @Override
-    public UserInfo create(UserInfoRequest request) {
-        User user = userRepo.findById(request.getUser().getId()).orElse(null);
+    public User create(UserInfoRequest request) {
 
-        UserInfo info = new UserInfo();
-        info.setUser(user);
-        info.setFatherName(request.getFatherName());
-        info.setMotherName(request.getMotherName());
-        info.setAddress(request.getAddress());
-        return repository.save(info);
+
+        try{
+            User user = userRepo.findById(request.getUser().getId()).orElse(null);
+
+            UserInfo info = new UserInfo();
+            info.setFatherName(request.getFatherName());
+            info.setMotherName(request.getMotherName());
+            info.setAddress(request.getAddress());
+            user.setUserInfo(info);
+
+            return userRepository.save(user);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 }
