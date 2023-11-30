@@ -1,6 +1,6 @@
 package com.fuad.aclDemo.mapper;
 
-import com.fuad.aclDemo.dto.CustomUserDetails;
+import com.fuad.aclDemo.user.CustomUserDetails;
 import com.fuad.aclDemo.role.RoleResponse;
 import com.fuad.aclDemo.user.UserResponse;
 import com.fuad.aclDemo.user.User;

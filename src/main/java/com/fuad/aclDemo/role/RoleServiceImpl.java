@@ -1,8 +1,6 @@
 package com.fuad.aclDemo.role;
 
-import com.fuad.aclDemo.enums.RoleName;
-import com.fuad.aclDemo.enums.UserType;
-import com.fuad.aclDemo.repository.RoleRepository;
+import com.fuad.aclDemo.user.UserTypeEnum;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,10 +12,12 @@ public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
 
     @Override
-    public Role getRoleByUserType(UserType userType) {
-        RoleName roleName = switch (userType) {
-            case CUSTOMER -> RoleName.ROLE_CUSTOMER;
-            case ADMIN -> RoleName.ROLE_ADMIN;
+    public Role getRoleByUserType(UserTypeEnum userType) {
+        RoleNameEnum roleName = switch (userType) {
+            case CUSTOMER -> RoleNameEnum.ROLE_CUSTOMER;
+            case ADMIN -> RoleNameEnum.ROLE_ADMIN;
+            case TEACHER -> RoleNameEnum.ROLE_TEACHER;
+            case STUDENT -> RoleNameEnum.ROLE_STUDENT;
         };
 
         return roleRepository.findByName(roleName.toString()).orElseThrow(() -> new

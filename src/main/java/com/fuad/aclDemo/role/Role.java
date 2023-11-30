@@ -1,6 +1,6 @@
 package com.fuad.aclDemo.role;
 
-import com.fuad.aclDemo.entity.Permission;
+import com.fuad.aclDemo.permission.Permission;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,9 +28,16 @@ public class Role {
 
     private String description;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "permission_role", joinColumns = {
-            @JoinColumn(name = "role_id", referencedColumnName = "id")
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "permission_role",
+            joinColumns = {
+                @JoinColumn(
+                        name = "role_id",
+                        referencedColumnName = "id"
+                )
     }, inverseJoinColumns = {
             @JoinColumn(name = "permission_id", referencedColumnName = "id")
     })

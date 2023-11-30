@@ -1,12 +1,17 @@
 package com.fuad.aclDemo;
 
-import com.fuad.aclDemo.repository.RoleRepository;
+import com.fuad.aclDemo.role.RoleRepository;
+import com.fuad.aclDemo.role.Role;
 import com.fuad.aclDemo.user.UserRepository;
 import com.fuad.aclDemo.role.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.*;
 
 @SpringBootApplication
 public class AclDemoApplication {
@@ -25,33 +30,21 @@ public class AclDemoApplication {
 		SpringApplication.run(AclDemoApplication.class, args);
 	}
 
-	/*@Bean
+	@Bean
 	CommandLineRunner commandLineRunner(){
 		return args -> {
-			ArrayList<Role> roles = new ArrayList<>();
-
-			Role role = new Role();
-			role.setName("ROLE_ADMIN");
-			role.setDescription("ADMIN ROLE");
-			roleRepository.save(role);
-
-			Role role1 = new Role();
-			role1.setName("ROLE_CUSTOMER");
-			role1.setDescription("CUSTOMER");
-			roleRepository.save(role1);
-
-			*//*User user = User.builder()
-					.firstName("Fuad")
-					.lastName("Hasan")
-					.username("fuad@gmail.com")
-					.password(passwordEncoder.encode("123123"))
-					.phoneNumber("01675944076")
-					.roles(Collections.singleton(role))
-					.accountNonExpired(true)
-					.accountNonLocked(true)
-					.credentialsNonExpired(true)
-					.enabled(true)
-					.build();*//*
+//			Map<String, String> roles = new HashMap<>();
+//			roles.put("ROLE_ADMIN","ADMIN ROLE");
+//			roles.put("ROLE_CUSTOMER","ADMIN ROLE");
+//			roles.put("ROLE_STUDENT","ROLE STUDENT");
+//			roles.put("ROLE_TEACHER","ROLE TEACHER");
+//
+//			for (Map.Entry<String, String> entry: roles.entrySet()){
+//				Role role = new Role();
+//				role.setName(entry.getKey());
+//				role.setDescription(entry.getValue());
+//				roleRepository.save(role);
+//			}
 		};
-	}*/
+	}
 }

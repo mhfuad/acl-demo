@@ -1,7 +1,7 @@
 package com.fuad.aclDemo.role;
 
-import com.fuad.aclDemo.enums.UserType;
+import com.fuad.aclDemo.user.UserTypeEnum;
 
 public interface RoleService {
-    Role getRoleByUserType(UserType userType);
+    Role getRoleByUserType(UserTypeEnum userType);
 }

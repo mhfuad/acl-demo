@@ -1,6 +1,5 @@
 package com.fuad.aclDemo.user;
 
-import com.fuad.aclDemo.enums.UserType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
@@ -27,5 +26,5 @@ public class UserRegistrationRequest {
     private String phoneNumber;
     @NotNull(message = "User type is required")
     @Enumerated(EnumType.STRING)
-    private UserType type;
+    private UserTypeEnum type;
 }

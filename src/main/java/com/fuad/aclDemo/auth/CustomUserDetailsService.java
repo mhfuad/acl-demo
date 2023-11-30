@@ -1,6 +1,6 @@
 package com.fuad.aclDemo.auth;
 
-import com.fuad.aclDemo.dto.CustomUserDetails;
+import com.fuad.aclDemo.user.CustomUserDetails;
 import com.fuad.aclDemo.user.User;
 import com.fuad.aclDemo.mapper.Mapper;
 import com.fuad.aclDemo.user.UserRepository;
