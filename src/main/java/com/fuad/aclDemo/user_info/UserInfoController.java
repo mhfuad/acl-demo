@@ -1,26 +1,19 @@
 package com.fuad.aclDemo.user_info;
 
-import com.fuad.aclDemo.common.ResponseObject;
-import com.fuad.aclDemo.user.UserRegistrationRequest;
-import com.fuad.aclDemo.user.UserRepository;
-import com.fuad.aclDemo.user.UserResponse;
-import com.fuad.aclDemo.user.UserService;
+import com.fuad.aclDemo.user.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Slf4j
 @AllArgsConstructor
@@ -31,19 +24,34 @@ public class UserInfoController {
     private UserRepository userRepository;
     @Autowired
     private UserInfoRepository repository;
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads/";
 
     //public ResponseObject<UserResponse> registerUser(@Valid @RequestBody UserRegistrationRequest request, BindingResult result){
     @PostMapping("/create")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody UserInfoRequest request){
+    public ResponseEntity<?> registerUser(@Valid @RequestBody UserInfoRequest request) throws IOException {
+        if(request.getImage().equals("")|| request.getImage().isEmpty() || request.getImage() == null){
+            User user = userRepository.findById(request.getUser_id()).orElse(null);
+            if(user == null){
+                return ResponseEntity.badRequest().body("No user found");
+            }
+            UserInfo info = new UserInfo();
+            info.setFatherName(request.getFatherName());
+            info.setMotherName(request.getMotherName());
+            info.setAddress(request.getAddress());
+            user.setUserInfo(info);
+            userRepository.save(user);
+            return ResponseEntity.ok(user);
+        }
 
-        return ResponseEntity.ok(service.create(request));
+        byte[] imageBytes = Base64.decodeBase64(request.getImage());
+        try (FileOutputStream fos = new FileOutputStream(UPLOAD_DIRECTORY)){
+            fos.write(imageBytes);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
-        //return ResponseEntity.ok(userService.registerUser(request));
-//        return ResponseObject.<UserResponse>builder()
-//                .status(ResponseObject.ResponseStatus.SUCCESSFUL)
-//                .message("User Register successful")
-//                .data(userService.registerUser(request))
-//                .build();
+        return ResponseEntity.ok("uploads/image.jpg");
+
     }
 
 }

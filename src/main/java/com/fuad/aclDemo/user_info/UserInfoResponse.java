@@ -15,13 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 public class UserInfoResponse {
     private Long id;
-
     private User user;
-
     private String lastName;
-
     private String fatherName;
-
     private String motherName;
+    private String address;
+    private String image;
 
 }

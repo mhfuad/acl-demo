@@ -44,6 +44,12 @@ public class UserController {
 //                .build();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> byId(@PathVariable Long id){
+
+        return ResponseEntity.badRequest().body("No User found");
+    }
+
     @GetMapping("/all")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseObject<Page<UserResponse>> getAllUsers(@PageableDefault(sort = "id",

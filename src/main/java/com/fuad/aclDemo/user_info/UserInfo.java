@@ -22,6 +22,7 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -33,4 +34,6 @@ public class UserInfo {
     @Lob
     @Column(length = 5000)
     private String address;
+
+    private String image;
 }

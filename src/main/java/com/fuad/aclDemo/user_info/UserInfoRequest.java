@@ -16,8 +16,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserInfoRequest {
 
-    private User user;
+    private Long user_id;
     private String fatherName;
     private String motherName;
     private String address;
+    private String image;
 }

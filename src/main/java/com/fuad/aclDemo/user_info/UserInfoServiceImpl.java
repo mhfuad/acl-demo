@@ -27,21 +27,21 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public User create(UserInfoRequest request) {
 
-
-        try{
-            User user = userRepo.findById(request.getUser().getId()).orElse(null);
-
-            UserInfo info = new UserInfo();
-            info.setFatherName(request.getFatherName());
-            info.setMotherName(request.getMotherName());
-            info.setAddress(request.getAddress());
-            user.setUserInfo(info);
-
-            return userRepository.save(user);
-        }catch (Exception e){
-            System.out.println(e);
-            return null;
-        }
+        return null;
+//        try{
+//            User user = userRepo.findById(request.getUser().getId()).orElse(null);
+//
+//            UserInfo info = new UserInfo();
+//            info.setFatherName(request.getFatherName());
+//            info.setMotherName(request.getMotherName());
+//            info.setAddress(request.getAddress());
+//            user.setUserInfo(info);
+//
+//            return userRepository.save(user);
+//        }catch (Exception e){
+//            System.out.println(e);
+//            return null;
+//        }
 
     }
 }

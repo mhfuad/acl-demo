@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -45,5 +46,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<UserResponse> getAllUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(Mapper::toUserResponse);
+    }
+
+    @Override
+    public Optional<User> byId(Long id) {
+        return userRepository.findById(id);
     }
 }
