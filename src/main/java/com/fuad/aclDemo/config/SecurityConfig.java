@@ -42,7 +42,7 @@ public class SecurityConfig {
                                 "api/v1/auth/refresh",
                                 "/api/v1/home",
                                 "/api/v1/users/create",
-                                "/api/v1/user_info/create",
+                                "/uploads/**",
                                 "swagger-ui/**",
                                 "/v3/api-docs/**").permitAll()
                         .anyRequest()

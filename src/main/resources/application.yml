@@ -11,6 +11,10 @@ spring:
     hibernate:
       ddl-auto: update
       format_sql: true
+  mvc:
+    static-pattern=/uploads/**
+  resource:
+    static-locations=file:/uploads/
 authentication:
   secret-key: ${{ SECRET_KEY_brnwon_*&$#-good}}
   access-token:
