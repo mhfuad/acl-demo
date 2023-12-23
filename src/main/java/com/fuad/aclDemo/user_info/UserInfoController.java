@@ -49,10 +49,12 @@ public class UserInfoController {
             userRepository.save(user);
             return ResponseEntity.ok(user);
         }
+
         Path directoryPath = Paths.get(UPLOAD_DIRECTORY);
         if (!directoryPath.toFile().exists()) {
             directoryPath.toFile().mkdirs();
         }
+
         try{
             byte[] imageBytes = Base64.getMimeDecoder().decode(request.getImage().split(",")[1]);
             BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes));
