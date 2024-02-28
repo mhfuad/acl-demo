@@ -5,11 +5,13 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class RoleServiceImpl implements RoleService {
 
-    private final RoleRepository roleRepository;
+    private final RoleRepository repository;
 
     @Override
     public Role getRoleByUserType(UserTypeEnum userType) {
@@ -20,7 +22,12 @@ public class RoleServiceImpl implements RoleService {
             case STUDENT -> RoleNameEnum.ROLE_STUDENT;
         };
 
-        return roleRepository.findByName(roleName.toString()).orElseThrow(() -> new
+        return repository.findByName(roleName.toString()).orElseThrow(() -> new
                 EntityNotFoundException("Role not found"));
+    }
+
+    @Override
+    public List<Role> all() {
+        return repository.findAll();
     }
 }

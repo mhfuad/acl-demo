@@ -32,9 +32,9 @@ public class AclDemoApplication {
 		SpringApplication.run(AclDemoApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(){
-		return args -> {
+//	@Bean
+//	CommandLineRunner commandLineRunner(){
+//		return args -> {
 //			Map<String, String> roles = new HashMap<>();
 //			roles.put("ROLE_ADMIN","ADMIN ROLE");
 //			roles.put("ROLE_CUSTOMER","ADMIN ROLE");
@@ -47,6 +47,6 @@ public class AclDemoApplication {
 //				role.setDescription(entry.getValue());
 //				roleRepository.save(role);
 //			}
-		};
-	}
+//		};
+//	}
 }
