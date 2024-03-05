@@ -8,4 +8,8 @@ public interface RoleService {
     Role getRoleByUserType(UserTypeEnum userType);
 
     List<Role> all();
+
+    Role save(RoleRequest role);
+
+    void delete(Long id);
 }
