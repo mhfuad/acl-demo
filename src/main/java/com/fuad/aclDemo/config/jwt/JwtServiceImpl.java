@@ -1,8 +1,8 @@
 package com.fuad.aclDemo.config.jwt;
 
 import com.fuad.aclDemo.config.properties.AuthenticationProperties;
-import com.fuad.aclDemo.user.CustomUserDetails;
-import com.fuad.aclDemo.token.TokenRepository;
+import com.fuad.aclDemo.config.CustomUserDetails;
+import com.fuad.aclDemo.repository.TokenRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;

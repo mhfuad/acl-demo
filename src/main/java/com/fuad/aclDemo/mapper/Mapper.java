@@ -1,9 +1,9 @@
 package com.fuad.aclDemo.mapper;
 
-import com.fuad.aclDemo.user.CustomUserDetails;
-import com.fuad.aclDemo.role.RoleResponse;
-import com.fuad.aclDemo.user.UserResponse;
-import com.fuad.aclDemo.user.User;
+import com.fuad.aclDemo.config.CustomUserDetails;
+import com.fuad.aclDemo.dto.response.RoleResponse;
+import com.fuad.aclDemo.dto.response.UserResponse;
+import com.fuad.aclDemo.entity.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -22,11 +22,7 @@ public class Mapper {
             authorities.add(new SimpleGrantedAuthority( r.getName()));
 
             r.getPermissions().forEach(p -> {
-                if (user.isVerified()){
-                    authorities.add( new SimpleGrantedAuthority(p.getName()));
-                }else if (!p.isRequiresVerification()){
                     authorities.add(new SimpleGrantedAuthority(p.getName()));
-                }
             });
 
         });

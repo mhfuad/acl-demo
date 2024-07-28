@@ -1,8 +1,7 @@
 package com.fuad.aclDemo.config;
 
-import com.fuad.aclDemo.auth.CustomUserDetailsService;
-import com.fuad.aclDemo.auth.ExceptionHandlerFilter;
-import com.fuad.aclDemo.auth.JwtTokenVerifierFilter;
+import com.fuad.aclDemo.service.CustomUserDetailsService;
+import com.fuad.aclDemo.config.jwt.JwtTokenVerifierFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
