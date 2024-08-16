@@ -2,10 +2,10 @@ server:
   port: 8001
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/aclDemo
-    username: fuad
+    url: jdbc:postgresql://localhost:5432/acl_demo
+    username: postgres
     password: esscsmfu2
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     hibernate:
