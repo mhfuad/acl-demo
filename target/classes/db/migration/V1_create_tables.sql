@@ -1,3 +1,3 @@
-CREATE TABLE users (
-    id 
-)
+--CREATE TABLE users (
+--    id bigInt
+--)

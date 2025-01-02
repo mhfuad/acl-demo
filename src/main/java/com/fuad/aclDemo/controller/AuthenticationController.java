@@ -7,6 +7,7 @@ import com.fuad.aclDemo.dto.request.RefreshTokenRequest;
 import com.fuad.aclDemo.entity.User;
 import com.fuad.aclDemo.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -91,6 +92,11 @@ public class AuthenticationController {
                 .status(ResponseObject.ResponseStatus.SUCCESSFUL)
                 .message("User logged out successfully")
                 .build();
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(){
+        return ResponseEntity.ok("register");
     }
 
 }

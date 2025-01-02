@@ -37,35 +37,35 @@ public class AclDemoApplication {
 		SpringApplication.run(AclDemoApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(){
-		return args -> {
-			Map<String, String> roles = new HashMap<>();
-			roles.put("ROLE_ADMIN","ADMIN Role");
-			roles.put("ROLE_CUSTOMER","CUSTOMER role");
-			roles.put("ROLE_STUDENT","STUDENT Role");
-			roles.put("ROLE_TEACHER","TEACHER Role");
-			roles.put("ROLE_USER","USER Role");
-
-			for (Map.Entry<String, String> entry: roles.entrySet()){
-				Role role = new Role();
-				role.setName(entry.getKey());
-				role.setDescription(entry.getValue());
-				roleRepository.save(role);
-			}
-
-			User user = new User();
-			user.setFirstName("fuad");
-			user.setLastName("hasan");
-			user.setUsername("fuad@gmail.com");
-			user.setPhoneNumber("01675944076");
-			user.setAccountNonExpired(true);
-			user.setAccountNonLocked(true);
-			user.setCredentialsNonExpired(true);
-			user.setEnabled(true);
-			user.setVerified(true);
-			user.setPassword(passwordEncoder.encode("123123"));
-			userRepository.save(user);
-		};
-	}
+//	@Bean
+//	CommandLineRunner commandLineRunner(){
+//		return args -> {
+//			Map<String, String> roles = new HashMap<>();
+//			roles.put("ROLE_ADMIN","ADMIN Role");
+//			roles.put("ROLE_CUSTOMER","CUSTOMER role");
+//			roles.put("ROLE_STUDENT","STUDENT Role");
+//			roles.put("ROLE_TEACHER","TEACHER Role");
+//			roles.put("ROLE_USER","USER Role");
+//
+//			for (Map.Entry<String, String> entry: roles.entrySet()){
+//				Role role = new Role();
+//				role.setName(entry.getKey());
+//				role.setDescription(entry.getValue());
+//				roleRepository.save(role);
+//			}
+//
+//			User user = new User();
+//			user.setFirstName("fuad");
+//			user.setLastName("hasan");
+//			user.setUsername("fuad@gmail.com");
+//			user.setPhoneNumber("01675944076");
+//			user.setAccountNonExpired(true);
+//			user.setAccountNonLocked(true);
+//			user.setCredentialsNonExpired(true);
+//			user.setEnabled(true);
+//			user.setVerified(true);
+//			user.setPassword(passwordEncoder.encode("123123"));
+//			userRepository.save(user);
+//		};
+//	}
 }
